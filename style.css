@@ -89,7 +89,16 @@ header.p-section {
 .p-section-lg {
   padding: 160px 0px;
 }
-
+.portrait-img {
+  width: 500px;
+  max-width: 1000px;
+  border-radius: 1.2rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease-out;
+}
+.portrait-img:hover {
+  transform: scale(1.05);
+}
 .container-lg {
   max-width: 900px;
 }
