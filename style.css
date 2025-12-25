@@ -73,13 +73,14 @@ sup, .sup {
 }
 
 .section-inverse {
-  margin-top: 60px;
-  padding: 180px 0px;
+  margin-top: 0px;
+  padding: 200px 0px;
 
 }
 
 .section-inverse > div {
   margin-top: -150px;
+  margin-bottom: -150px;
 }
 
 .card-footer {
@@ -96,6 +97,7 @@ sup, .sup {
   text-transform: uppercase;
   padding-right: 1rem;
   padding-left: 1rem;
+  color: #CBD5E1
 }
 
 .nav-link :hover {
@@ -128,16 +130,30 @@ sup, .sup {
 }
 
 header.p-section {
-  padding: 120px 0px 10px;
+  padding: 120px 0px 50px;
 }
 
+/* Make ONLY the first header fill the whole viewport */
+header.section-bg {
+  min-height: 100vh;               /* full screen */
+  display: flex;
+  align-items: center;             /* vertically center content */
+  padding: 0;                      /* override header.p-section padding */
+}
+
+/* Put padding INSIDE the header content so it doesn't shrink the section height */
+header.section-bg > .container-fluid {
+  width: 100%;
+  padding-top: calc(var(--nav-space, 0px) + 40px); /* keeps space under fixed navbar */
+  padding-bottom: 40px;
+}
 .p-section {
-  padding: 50px 0px;
-  padding-bottom: 0px;
+  padding: 20px 20px;
+  padding-bottom: 20px;
 }
 
 .p-section-lg {
-  padding: 50px 0px;
+  padding: 50px 50px;
 }
 
 .portrait-frame {
@@ -460,3 +476,305 @@ box-shadow: 0 20px 40px rgba(0,0,0,.25);
   box-shadow: 0 14px 28px rgba(13,110,253,0.35);
   background: #f5f5f5;     /* slightly darker on hover */
 }
+
+#contact {
+  padding: 80px 0;
+  background-color: #000;
+  color: white;
+}
+
+/* ================================
+   ACHIEVEMENTS SECTION
+================================ */
+
+
+.achievement-carousel {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* LEFT IMAGE */
+.achievement-image {
+  flex: 0 0 390px;
+  height: 540px;
+  border-radius: 1.2rem;
+  overflow: visible;
+  box-shadow: 0 16px 32px rgba(255, 255, 255, 0.12);
+}
+
+.achievement-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT CONTENT */
+.achievement-content {
+  flex: 1;
+}
+
+.achievement-content h3 {
+  font-size: 2rem;
+  color: #F8FAFC; /* matches portfolio heading tone */
+  margin-bottom: .75rem;
+}
+
+.achievement-content p {
+  font-size: 1.1rem;
+  color: #CBD5E1;
+  max-width: 600px;
+}
+
+/* NAV BUTTONS */
+.achievement-nav {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* reuse carousel-btn but softer */
+#achievements .carousel-btn {
+  position: static;
+  height: 42px;
+  width: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(13,110,253,0.25);
+  background: #ffffff;
+  color: #0d6efd;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 20px rgba(13,110,253,0.15);
+}
+
+#achievements .carousel-btn:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+
+/* MOBILE STACK */
+@media (max-width: 768px) {
+  .achievement-carousel {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .achievement-image {
+    width: 440px;
+    height: 600px;
+  }
+
+  .achievement-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ========= Section backgrounds (scenery) ========= */
+.section-bg{
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;                 /* force high-contrast text */
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* dark overlay so text pops on any scenery image */
+.section-bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.20) 40%,
+    rgba(0,0,0,0.50) 100%
+  );
+  z-index: 0;
+}
+
+/* keep section content above overlay */
+.section-bg > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* improve readability for headings and small labels */
+.section-bg h1,
+.section-bg h2,
+.section-bg h3,
+.section-bg p,
+.section-bg sup,
+.section-bg li{
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* If you have links inside bg sections */
+.section-bg a{
+  color: #fff;
+}
+.section-bg a:hover{
+  opacity: 0.9;
+}
+
+.section-bg::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 120px;                 /* adjust: 80–160px */
+  pointer-events:none;
+
+  /* Fade to your page background (match your global bg color) */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.25) 35%,
+    rgba(0,0,0,0.65) 100%
+  );
+}
+
+.section-seam{
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -28px;
+  height: 56px;
+  pointer-events: none;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0)
+  );
+}
+
+
+/* ================================
+   NAVBAR: dynamic background
+================================ */
+
+.nav-dynamic-bg{
+  position: relative;
+  background: transparent !important;
+  border: 0;
+  backdrop-filter: none; /* we’ll do the “glass” effect ourselves */
+}
+
+/* Two layers so we can crossfade between section backgrounds */
+.nav-dynamic-bg::before,
+.nav-dynamic-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+
+  background-image: var(--nav-bg-1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* This is what makes it feel like it blends with the section */
+  filter: saturate(1.05) contrast(1.05);
+  transform: translateZ(0);
+}
+
+/* Second layer holds the “incoming” background */
+.nav-dynamic-bg::after{
+  background-image: var(--nav-bg-2);
+  opacity: 0;
+  transition: opacity 520ms ease;
+}
+
+/* When swapping, fade the new one in */
+.nav-dynamic-bg.nav-bg-swap::after{
+  opacity: 1;
+}
+
+/* Add a subtle readability overlay on top of the image */
+.nav-dynamic-bg .container{
+  position: relative;
+}
+
+.nav-dynamic-bg .container::before{
+  content:"";
+  position:absolute;
+  inset:-10px -16px; /* slightly larger than container so edges blend */
+  pointer-events:none;
+  border-radius: 18px;
+
+  /* dark-to-transparent-to-dark like your section overlay idea :contentReference[oaicite:4]{index=4} */
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.15) 55%,
+    rgba(0,0,0,0.45) 100%
+  );
+}
+
+/* Ensure navbar content stays above overlay */
+.nav-dynamic-bg .container > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Make links readable on any scenery */
+.nav-dynamic-bg .navbar-brand,
+.nav-dynamic-bg .nav-link{
+  color: #fff !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.35);
+}
+
+/* Optional: add a soft “edge” instead of section borders */
+.nav-dynamic-bg{
+  box-shadow: 0 8px 30px rgba(0,0,0,0.20);
+}
+
+/* Navbar hide/show on scroll */
+#topNav{
+  transition: transform 260ms ease, opacity 260ms ease;
+  will-change: transform, opacity;
+}
+
+#topNav.nav-hidden{
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Navbar brand (name on the left) */
+#topNav .navbar-brand{
+  color: #ffffff !important;
+  font-weight: 600; /* optional, makes it feel more premium */
+  text-shadow: 0 2px 14px rgba(0,0,0,0.35); /* matches rest of nav text */
+  font-family:Arial, Helvetica, sans-serif;
+  letter-spacing: 0.04rem;
+  font-style:bold;
+  font-size:xx-large;
+}
+
+/* Keep it white on hover/focus as well */
+#topNav .navbar-brand:hover,
+#topNav .navbar-brand:focus{
+  color: #ffffff !important;
+}
+
+
+/* Full-screen panels (Portfolio + Awards + About) */
+#portfolio, #achievements, #about{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#portfolio > .container,
+#achievements > .container,
+#about > .container{
+  width: 100%;
+  padding-top: 50px;  /* room for fixed navbar */
+  padding-bottom: 70px;
+}
+
