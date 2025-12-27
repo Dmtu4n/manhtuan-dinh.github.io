@@ -948,3 +948,93 @@ box-shadow: 0 20px 40px rgba(0,0,0,.25);
 .reveal.d3 { transition-delay: 360ms; }
 .reveal.d4 { transition-delay: 480ms; }
 .reveal.d5 { transition-delay: 600ms; }
+
+/* =========================
+   Back to top button
+========================= */
+.back-to-top{
+  position: fixed;
+  right: 44px;
+  bottom: 44px;
+  z-index: 9999;
+
+  width: 60px;
+  height: 60px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.30);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  color: rgba(255,255,255,0.85);
+  font-size: 18px;
+  line-height: 1;
+
+  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+
+  transition: opacity 220ms ease, transform 220ms cubic-bezier(.22,.61,.36,1);
+}
+
+.back-to-top:hover{
+  opacity: 1;
+  transform: translateY(0) scale(1.02);
+  scale: 1.1;
+}
+
+.back-to-top.is-visible{
+  opacity: 0.75;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px){
+  .back-to-top{
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+}
+
+#about p{
+  max-width: 75ch;   /* 65–75ch is ideal for reading */
+}
+
+/* Widen About section text container */
+#about .container{
+  max-width: 1100px;   /* try 1100–1250px */
+}
+#about .about-text{
+  max-width: 1100px;
+}
+
+/* =========================
+   Full-screen Contact section
+========================= */
+
+#contact{
+  min-height: 100vh;              /* cover entire screen */
+  display: flex;
+  align-items: center;            /* vertical centering */
+  position: relative;
+}
+
+/* Ensure inner container uses full width but centered content */
+#contact > .container{
+  width: 100%;
+  padding-top: calc(var(--nav-space, 0px) + 40px); /* respect navbar */
+  padding-bottom: 40px;
+}
+
+#about{
+  min-height: calc(100vh + 120px);
+}

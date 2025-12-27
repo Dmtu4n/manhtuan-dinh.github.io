@@ -40,13 +40,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link fw-bold" href="#about">About</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link fw-bold" href="#contact">Contact</a>
-          </li>
+          </li>          
         </ul>
 
-        <a target='_blank' href='https://www.linkedin.com/in/dmtu4n/' class='btn btn-primary'><i class="bi-linkedin"></i> Connect with me</a>
+        <a target='_blank' href='https://www.linkedin.com/in/dmtu4n/' class='btn btn-primary'><i class="bi-linkedin"></i></a>
         <!-- <a  target='_blank' href='https://calendly.com/morganjlopes/call' class='btn btn-primary'><i class="bi-calendar-event"></i> Schedule a Call</a> -->
         <!-- <a href='#' class='btn btn-primary'><i class="bi-download"></i> Download Resume</a> -->
         <!-- <a href='mailto:' class='btn btn-primary'><i class="bi-envelope"></i> Send Email</a> -->
@@ -372,15 +369,19 @@
             
           </div>
         </div> -->
-        <div class='col-sm-8'>
+        <div class='col-sm-10'>
           <blockquote>Enthusiastic about learning and creating impact through real world projects</blockquote>
 
-          <p class='lead'>A young engineer keen on learning and interested in global issues. In academia, by becoming versatile and adaptive, I received world-class education opportunities & internships</p>
+          <p class='lead'>A young engineer keen on learning and interested in global issues. In academia, by becoming versatile and adaptive, I received world-class education opportunities, internships, and employments in Italy and France.</p>
           <p class='lead'>Outside academia, I am passionate about data analytics, financial markets, and international affaires. 
             Using my skill set, I participated in global youth programs, competitions, and projects to enhance my knowledge and create impact.</p>
           </p>
+          <p class='lead'>I keen on exploring new opportunities in semiconductors, data analytics, finance, and consulting fields. If my profile is what you are looking for, 
+            feel free to reach out to me!</p>
           <div class="container">
             <a href='CV.pdf' class='btn btn-primary'><i class="bi-download" target="_blank" rel="noopener noreferrer"></i> My Resume</a> 
+            <a href="CV_Europass.pdf" class="btn btn-primary"><i class="bi-download" target="_blank" rel="noopener noreferrer"></i>Europass CV</a>
+            <a href="mailto:dmtu4n.aurelius@gmail.com" class='btn btn-primary'><i class="bi-envelope"></i>Email</a>
           </div>
           <!--
           <div class='mt-5'>
@@ -395,7 +396,7 @@
     </div> 
   </section>
 
-  <!--
+<!--
   <section id='testimonials' class='p-section'>
     <div class='container'>
       <sup>Testimonials</sup>
@@ -448,7 +449,7 @@
     </div>
   </section>
   -->
-  <!--
+ <!--
   <section class='bg-dark text-white section-inverse'>
     <div class='container'>
       <div class='bg-primary p-5 card'>
@@ -524,8 +525,9 @@
   </section>
   -->
 
-  <section id='contact' class='bg-black text-white p-section'>
+  <section id='contact' class='bg-black text-white p-section section-bg' data-bg="img/bg/Bali.jpg">
     <div class='container container-lg'>
+      <!--
       <sup>Contact</sup>
       </div class ='bg-primary'> 
         
@@ -543,11 +545,12 @@
         </ul>
         <div class='text-center mt-5'>
           <a target='_blank' href='https://www.linkedin.com/in/dmtu4n/' class='btn btn-primary'><i class="bi-linkedin"></i> Connect on Linkedin</a>
-          <!-- <a  target='_blank' href='https://calendly.com/morganjlopes/call' class='btn btn-primary'><i class="bi-calendar-event"></i> Schedule a Call</a> 
-          <a href='#' class='btn btn-primary'><i class="bi-download"></i> Download Resume</a> -->
+           <a  target='_blank' href='https://calendly.com/morganjlopes/call' class='btn btn-primary'><i class="bi-calendar-event"></i> Schedule a Call</a> 
+          <a href='#' class='btn btn-primary'><i class="bi-download"></i> Download Resume</a> 
           <a href='mailto: dmtu4n.aurelius@gmail.com' class='btn btn-primary'><i class="bi-envelope"></i> Send Email</a>
         </div>
-      </div>
+      </div> -->
+    
     </div>
   </section>
 
@@ -602,6 +605,9 @@
       </filter>
     </defs>
   </svg>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
 
   <script>
     // Add as many portrait files as you like:
@@ -1081,6 +1087,35 @@
       });
     })();
   </script>
+
+  <script>
+  (function () {
+    const btn = document.getElementById("backToTop");
+    const hero = document.querySelector("header.section-bg"); // your intro section
+    if (!btn || !hero) return;
+
+    // Smooth scroll to top (landing page)
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Show button when viewer navigates out of the intro section
+    const io = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      // If intro is not sufficiently visible, show the button
+      if (entry.isIntersecting && entry.intersectionRatio > 0.55) {
+        btn.classList.remove("is-visible");
+      } else {
+        btn.classList.add("is-visible");
+      }
+    }, {
+      threshold: [0.0, 0.55]
+    });
+
+    io.observe(hero);
+  })();
+</script>
+
 
 
 
