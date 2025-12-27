@@ -496,17 +496,33 @@ box-shadow: 0 20px 40px rgba(0,0,0,.25);
 
 /* LEFT IMAGE */
 .achievement-image {
-  flex: 0 0 390px;
-  height: 540px;
-  border-radius: 1.2rem;
-  overflow: visible;
-  box-shadow: 0 16px 32px rgba(255, 255, 255, 0.12);
+  width: min(520px, 42vw);
+  flex: 0 0 auto;
+  --ar: 3 / 4;
+  aspect-ratio: var(--ar);
+
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  overflow: hidden;
 }
+
+/* switch aspect-ratio when image is landscape/wide */
+.achievement-image[data-orient="landscape"]{ --ar: 4 / 3; }
+.achievement-image[data-orient="wide"]{ --ar: 16 / 9; }
 
 .achievement-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 12px;        /* small inner rounding */
+  display: block;
+  background: rgba(255,255,255,0.04);
 }
 
 /* RIGHT CONTENT */
@@ -526,11 +542,119 @@ box-shadow: 0 20px 40px rgba(0,0,0,.25);
   max-width: 600px;
 }
 
+/* ===== First-time reveal animation ===== */
+#achievements .achv-reveal{
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  filter: blur(14px);
+  transition: opacity 900ms ease, transform 900ms cubic-bezier(.22,.61,.36,1), filter 900ms ease;
+}
+
+#achievements.is-visible .achv-reveal{
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  trasnsition-property: opacity
+}
+
+/* stagger */
+#achievements.is-visible .achv-reveal.delay-1{ transition-delay: 120ms; }
+#achievements.is-visible .achv-reveal.delay-2{ transition-delay: 220ms; }
+#achievements.is-visible .achv-reveal.delay-3{ transition-delay: 320ms; }
+
+/* ===== Swipe transitions for content changes ===== */
+.achv-swipe-out-left{ animation: achvOutLeft 220ms ease both; }
+.achv-swipe-out-right{ animation: achvOutRight 220ms ease both; }
+.achv-swipe-in-left{ animation: achvInLeft 420ms cubic-bezier(.22,.61,.36,1) both; }
+.achv-swipe-in-right{ animation: achvInRight 420ms cubic-bezier(.22,.61,.36,1) both; }
+
+@keyframes achvOutLeft{
+  to{ opacity: 0; transform: translateX(-28px); filter: blur(10px); }
+}
+@keyframes achvOutRight{
+  to{ opacity: 0; transform: translateX(28px); filter: blur(10px); }
+}
+@keyframes achvInLeft{
+  from{ opacity: 0; transform: translateX(40px); filter: blur(12px); }
+  to{ opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+@keyframes achvInRight{
+  from{ opacity: 0; transform: translateX(-40px); filter: blur(12px); }
+  to{ opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
 /* NAV BUTTONS */
 .achievement-nav {
   margin-top: 1.5rem;
   display: flex;
   gap: 1rem;
+}
+
+/* =========================
+   Awards navigation – edge arrows
+========================= */
+
+.award-nav-edge{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 5;
+
+  /* hit area (large but invisible) */
+  width: 120px;
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.8;
+  transition: opacity 220ms ease;
+}
+
+.award-nav-edge:hover{
+  opacity: 0.8;
+}
+
+
+/* The arrow itself */
+.award-nav-edge .arrow{
+  font-size: 120px;
+  font-weight: 300;
+  color: rgba(180,180,180,0.8);
+  line-height: 1;
+
+  transition: transform 320ms cubic-bezier(.22,.61,.36,1);
+  user-select: none;
+}
+
+/* Directional hover motion */
+.award-prev:hover .arrow{
+  transform: translateX(-10px);
+}
+
+.award-next:hover .arrow{
+  transform: translateX(10px);
+}
+
+/* Hide arrows slightly on mobile */
+@media (max-width: 768px){
+  .award-nav-edge{
+    width: 80px;
+    height: 160px;
+  }
+
+  .award-nav-edge .arrow{
+    font-size: 48px;
+  }
+}
+
+#achievements{
+  position: relative; /* already true via .section-bg, but explicit is fine */
 }
 
 /* reuse carousel-btn but softer */
@@ -568,6 +692,25 @@ box-shadow: 0 20px 40px rgba(0,0,0,.25);
     margin-right: auto;
   }
 }
+
+/* Layer that spans the whole section (full width) */
+#achievements .award-nav-layer{
+  position: absolute;
+  inset: 0;
+  z-index: 6;            /* above overlay + content */
+  pointer-events: none;  /* so only buttons capture clicks */
+}
+
+/* Buttons can still be clicked */
+#achievements .award-nav-edge{
+  pointer-events: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* True screen-edge docking */
+#achievements .award-prev{ left: 18px; }
+#achievements .award-next{ right: 18px; }
 
 /* ========= Section backgrounds (scenery) ========= */
 .section-bg{
@@ -778,3 +921,30 @@ box-shadow: 0 20px 40px rgba(0,0,0,.25);
   padding-bottom: 70px;
 }
 
+/* =========================
+   Global blur-to-appearance reveal
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  filter: blur(14px);
+  transition:
+    opacity 1000ms ease,
+    transform 1000ms cubic-bezier(.22,.61,.36,1),
+    filter 1000ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.is-visible .reveal {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* Optional: stagger helpers */
+.reveal.d1 { transition-delay: 120ms; }
+.reveal.d2 { transition-delay: 240ms; }
+.reveal.d3 { transition-delay: 360ms; }
+.reveal.d4 { transition-delay: 480ms; }
+.reveal.d5 { transition-delay: 600ms; }

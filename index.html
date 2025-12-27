@@ -33,14 +33,14 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-4 mb-lg-0 me-3">
           <li class="nav-item">
-            <a class="nav-link fw-bold" href="#about">About</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link fw-bold" href="#portfolio">Projects</a>
           </li>
-          <li>
+          <li class="nav-item">
             <a class="nav-link fw-bold" href="#achievements">Awards</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold" href="#about">About</a>
+          </li> 
           <li class="nav-item">
             <a class="nav-link fw-bold" href="#contact">Contact</a>
           </li>
@@ -59,7 +59,7 @@
     <div class='container-fluid'>
       <div class='row align-items-center'>
 
-        <div class='col-md-6 offset-md-1'>
+        <div class='col-md-6 offset-md-1 reveal' id="IntroText">
           <h2>Hello 🖐️</h2>
           <h2>My name is Dinh Manh Tuan,</h2>
           <h2>I am a Material Engineer, self-taught <span class='marker-highlight'>Data Analytics</span>, and MSc. in 
@@ -70,7 +70,7 @@
           <h2><span class="fi fi-vn"></span> <span class="fi fi-fr"></span></h2>
         </div>
 
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center reveal" id="introPortrait">
           <div class="portrait-frame"> 
           <img class="active" src="img/Portrait/Portrait_1.jpg" alt="Dinh Manh Tuan">
           <img src="img/Portrait/Portrait_2.jpg" alt="Dinh Manh Tuan">
@@ -151,11 +151,11 @@
   
   <section id='portfolio' class='p-section section-bg' data-bg="img/bg/Nice2.jpg">
     <div class='container'>
-      <h2 class='mb-5 underline'>Featured Projects</h2>
-      <div class="portfolio-grid">
+      <h2 class='mb-5 underline reveal'>Featured Projects</h2>
+      <div class="portfolio-grid" id="portfolioGrid">
 
       <!-- CARD 1 -->
-      <article class="project-card" style="--bg: url('img/BKI/ball-teng-1.JPG')">
+      <article class="project-card reveal" style="--bg: url('img/BKI/ball-teng-1.JPG')">
         <div class="project-content">
           <h3>From Wastes to Blue Energy</h3>
           <p>Nanomaterial application for sea sensors applications</p>
@@ -164,7 +164,7 @@
       </article>
 
       <!-- CARD 2 -->
-      <article class="project-card" style="--bg: url('img/KVC/Picture2.jpg')">
+      <article class="project-card reveal" style="--bg: url('img/KVC/Picture2.jpg')">
         <div class="project-content">
           <h3>Versatile Nanogenerators for Bio-sensors Application</h3>
           <p>Advanced bio-compatible nanogenerators using Halloysite Nanoparticles integration for Biomedical applications</p>
@@ -173,7 +173,7 @@
       </article>
 
       <!-- CARD 3 -->
-      <article class="project-card" style="--bg: url('img/hitachi/Slide1.PNG')">
+      <article class="project-card reveal" style="--bg: url('img/hitachi/Slide1.PNG')">
         <div class="project-content">
           <h3>Enhacning ASEAN Energy Infrastructure</h3>
           <p>Community-based solar plant and grid infrastructure enhancement in supporting the energy transition</p>
@@ -182,7 +182,7 @@
       </article>
 
       <!-- CARD 4 -->
-      <article class="project-card" style="--bg: url('img/FujiSeal/Picture2.PNG')">
+      <article class="project-card reveal" style="--bg: url('img/FujiSeal/Picture2.PNG')">
         <div class="project-content">
           <h3>ML Model for Sustainable Packaging Design</h3>
           <p>Using Machine Learning model for optimization algorithm in designing Mono-PE sustainable liquid detergent pouch</p>
@@ -191,7 +191,7 @@
       </article>
 
       <!-- CARD 5 -->
-      <article class="project-card" style="--bg: url('img/WQU/YCmodel.png')">
+      <article class="project-card reveal" style="--bg: url('img/WQU/YCmodel.png')">
         <div class="project-content">
           <h3>Yield Curve Modelling, ETFs Analysis</h3>
           <p>Replicated yield curve using Nelson-Siegel model, revealing how term structure curvature explains market dynamics for Vietnam and Australian treasury</p>
@@ -200,7 +200,7 @@
       </article>
 
       <!-- CARD 6 -->
-      <article class="project-card" style="--bg: url('img/WQU/gwp2.png')">
+      <article class="project-card reveal" style="--bg: url('img/WQU/gwp2.png')">
         <div class="project-content">
           <h3>Neural Networs and Technical Indicators for Stock Prediction</h3>
           <p>Optimized feature selection and Neural Networks for stock trend prediction in a developed financial market</p>
@@ -209,7 +209,7 @@
       </article>
 
       <!-- CARD 7 -->
-      <article class="project-card" style="--bg: url('img/MLflow.svg')">
+      <article class="project-card reveal" style="--bg: url('img/MLflow.svg')">
         <div class="project-content">
           <h3>TikTok Data Science Case Study</h3>
           <p>Employed EDA, Statistical Testing, and ML models to identify between "Claim" vs. "Opinion" posts in a +20K TikTok dataset</p>
@@ -221,32 +221,36 @@
 
   <section id="achievements" class="p-section section-bg" data-bg="img/bg/Berlin.jpg">
     <div class="container">
-      <h2 class="mb-5 underline">Awards & Certifications</h2>
+      <h2 class="mb-5 underline achv-reveal delay-1">Awards & Certifications</h2>
 
       <div class="achievement-carousel">
 
         <!-- LEFT: image frame -->
-        <div class="achievement-image">
+        <div class="achievement-image achv-reveal delay-2">
           <img id="achievementImg" src="img/awards/FS.jpg" alt="Achievement">
         </div>
 
         <!-- RIGHT: text -->
-        <div class="achievement-content">
+        <div class="achievement-content achv-reveal delay-3">
           <h3 id="achievementTitle">Fuji Seal Foundation Scholarship</h3>
           <p id="achievementDesc">
             Awarded to only 8 students across Asia for outstanding academic excellence
             and leadership in engineering and innovation.
           </p>
-
-          <!-- navigation -->
-          <div class="achievement-nav">
-            <button class="carousel-btn" id="prevAch"><i class="bi-chevron-left"></i></button>
-            <button class="carousel-btn" id="nextAch"><i class="bi-chevron-right"></i></button>
-          </div>
         </div>
-
       </div>
     </div>
+
+    <!-- navigation -->
+    <div class="award-nav-layer" aria-hidden="false">
+      <button id="prevAward" class="award-nav-edge award-prev" aria-label="Previous award">
+        <span class="arrow">‹</span>
+      </button>
+      <button id="nextAward" class="award-nav-edge award-next" aria-label="Next award">
+        <span class="arrow">›</span>
+      </button>
+    </div>      
+    
   </section>
 
     <!--
@@ -325,10 +329,10 @@
 
   <section id = 'about' class='text-white section-inverse section-bg' data-bg="img/bg/Prague.jpg">
     <div class= 'container-lg'>
-      <sup>About</sup>
-      <h2 class='mb-5 underline'>I am Dinh Manh Tuan</h2>
+      <sup class="reveal d1">About</sup>
+      <h2 class='mb-5 underline reveal d2'>I am Dinh Manh Tuan</h2>
     
-      <div class='row flex-row'>
+      <div class='row flex-row reveal d3'>
         <!--
         <div class='col-sm-4'>
           
@@ -645,38 +649,128 @@
         desc: "Recognized as top 1% of students nationwide for academic performance and impact."
       },
       {
-        img: "img/awards/BKTENG.png",
-        title: "Tech Planter Asia – Second Prize",
-        desc: "Led a multidisciplinary team to develop sustainable energy solutions."
+        img: "img/awards/NUS.jpg",
+        title: "NUS Enterprise Summer Programme in Entrepreneurship 2023",
+        desc: "Awarded a full scholarship among 9 Vietnamese delegates for a two-week immersion program about venture creation, idea pitching, and startup fundraising process. Attended workshops hosted by Microsoft, Google, and Alibaba,...."
       },
       {
-        img: "img/awards/WQU.png",
-        title: "WorldQuant University Applied Data Science Lab",
-        desc: "abc"
-      }
+        img: "img/awards/BKTENG.png",
+        title: "Tech Planter Asia - Second Prize",
+        desc: "Led a multidisciplinary team to develop sustainable energy solutions."
+      },
+            {
+        img: "img/awards/HYLI.jpg",
+        title: "Hitachi Young Leaders Initiative",
+        desc: "Selected as 1 in 4 Vietnamese students to attend a global leadership program in Bali, Indonesia."
+      },
+      {
+        img: "img/awards/GoogleAdvancedDA.png",
+        title: "Google Advanced Data Analytics Certificate",
+        desc: ""
+      },
+      {
+        img: "img/awards/GoogleDA.png",
+        title: "Google Data Analytics Certificate",
+        desc: ""
+      },
+      {
+        img: "img/awards/GoogleBI.png",
+        title: "Google Business Intelligence Certificate",
+        desc: ""
+      },
+      {
+        img: "img/awards/WQU.jpg",
+        title: "WorldQuant University Applied Data Science Lab Certificate",
+        desc: ""
+      },
+      {
+        img: "img/awards/PMP.jpg",
+        title: "Project Management Professional (PMP) Certification - Atoha Institute",
+        desc: ""
+      }      
     ];
 
     let achIndex = 0;
+
+    const sectionEl = document.getElementById("achievements");
+    const frameEl   = sectionEl.querySelector(".achievement-image");
+    const contentEl = sectionEl.querySelector(".achievement-content");
 
     const imgEl   = document.getElementById("achievementImg");
     const titleEl = document.getElementById("achievementTitle");
     const descEl  = document.getElementById("achievementDesc");
 
+    function setOrientation() {
+      const r = imgEl.naturalWidth / imgEl.naturalHeight;
+      if (r > 1.6) frameEl.dataset.orient = "wide";
+      else if (r > 1.15) frameEl.dataset.orient = "landscape";
+      else frameEl.dataset.orient = "portrait";
+    }
+
     function renderAchievement(i) {
+      imgEl.onload = () => setOrientation();
       imgEl.src = achievements[i].img;
       titleEl.textContent = achievements[i].title;
       descEl.textContent = achievements[i].desc;
     }
 
-    document.getElementById("nextAch").onclick = () => {
-      achIndex = (achIndex + 1) % achievements.length;
-      renderAchievement(achIndex);
+    function swipeTo(newIndex, dir) {
+      // dir: "next" or "prev"
+      const outClass = dir === "next" ? "achv-swipe-out-left" : "achv-swipe-out-right";
+      const inClass  = dir === "next" ? "achv-swipe-in-left"  : "achv-swipe-in-right";
+
+      // animate current out
+      frameEl.classList.remove("achv-swipe-in-left","achv-swipe-in-right","achv-swipe-out-left","achv-swipe-out-right");
+      contentEl.classList.remove("achv-swipe-in-left","achv-swipe-in-right","achv-swipe-out-left","achv-swipe-out-right");
+
+      frameEl.classList.add(outClass);
+      contentEl.classList.add(outClass);
+
+      // after out, swap content and animate in
+      window.setTimeout(() => {
+        frameEl.classList.remove(outClass);
+        contentEl.classList.remove(outClass);
+
+        achIndex = newIndex;
+        renderAchievement(achIndex);
+
+        // restart animation reliably
+        void frameEl.offsetWidth;
+        void contentEl.offsetWidth;
+
+        frameEl.classList.add(inClass);
+        contentEl.classList.add(inClass);
+
+        window.setTimeout(() => {
+          frameEl.classList.remove(inClass);
+          contentEl.classList.remove(inClass);
+        }, 460);
+
+      }, 230);
+    }
+
+    document.getElementById("nextAward").onclick = () => {
+      const next = (achIndex + 1) % achievements.length;
+      swipeTo(next, "next");
     };
 
-    document.getElementById("prevAch").onclick = () => {
-      achIndex = (achIndex - 1 + achievements.length) % achievements.length;
-      renderAchievement(achIndex);
+    document.getElementById("prevAward").onclick = () => {
+      const prev = (achIndex - 1 + achievements.length) % achievements.length;
+      swipeTo(prev, "prev");
     };
+
+
+    renderAchievement(achIndex);
+    (function setupRevealOnce(){
+      const io = new IntersectionObserver((entries) => {
+        const e = entries[0];
+        if (e.isIntersecting) {
+          sectionEl.classList.add("is-visible");
+          io.disconnect();
+        }
+      }, { threshold: 0.28 });
+      io.observe(sectionEl);
+    })();
   </script>
 
   <script>
@@ -813,8 +907,13 @@
       const COOLDOWN_MS = 650;
 
       function getNavOffset() {
-        // Your CSS sets scroll-padding-top: 80px; keep docking consistent.
-        return 80;
+        const nav = document.getElementById("topNav");
+        return nav ? Math.round(nav.getBoundingClientRect().height) + 10 : 5;
+      }
+
+      if (window.__anchorScrolling) {
+        lastY = y;
+        return;
       }
 
       function maybeSnap() {
@@ -867,5 +966,124 @@
       window.addEventListener("scroll", maybeSnap, { passive: true });
     })();
   </script>
+
+  <script>
+    // Intro reveal after 1.5s so the background is enjoyed first
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector("header.section-bg")?.classList.add("is-visible");
+      }, 150);
+    });
+  </script>
+
+  <script>
+    (function () {
+      const section = document.getElementById("portfolio");
+      const grid = document.getElementById("portfolioGrid");
+      if (!section || !grid) return;
+
+      const cards = Array.from(grid.querySelectorAll(".project-card.reveal"));
+
+      // Assign delays row-by-row based on current column count
+      function applyGridStagger() {
+        const cols = Math.max(
+          1,
+          Math.round(grid.clientWidth / cards[0].getBoundingClientRect().width)
+        );
+
+        cards.forEach((card, i) => {
+          const row = Math.floor(i / cols);
+          const col = i % cols;
+          const order = row * cols + col; // row-by-row, left-to-right
+          card.style.transitionDelay = (120 + order * 120) + "ms";
+        });
+      }
+
+      // Observe section enter
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        applyGridStagger();
+        section.classList.add("is-visible");
+        io.disconnect();
+      }, { threshold: 0.22 });
+
+      io.observe(section);
+
+      // Recompute delays on resize (so 3-col/2-col/1-col stays correct)
+      window.addEventListener("resize", () => {
+        if (section.classList.contains("is-visible")) applyGridStagger();
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      const about = document.getElementById("about");
+      if (!about) return;
+
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) return;
+        about.classList.add("is-visible");
+        io.disconnect();
+      }, { threshold: 0.22 });
+
+      io.observe(about);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const nav = document.getElementById("topNav");
+      if (!nav) return;
+
+      // Keep this in sync with your snap script cooldown
+      const ANCHOR_LOCK_MS = 700;
+
+      // expose a small global flag your snap script can respect (we'll use it below)
+      window.__anchorScrolling = false;
+
+      function navOffset() {
+        // Real navbar height (even if slid up, height is still measurable)
+        return Math.round(nav.getBoundingClientRect().height);
+      }
+
+      // Also keep CSS scroll-padding-top accurate (covers manual hash loads too)
+      function syncScrollPadding() {
+        document.documentElement.style.scrollPaddingTop = (navOffset() + 10) + "px";
+      }
+
+      window.addEventListener("load", syncScrollPadding);
+      window.addEventListener("resize", syncScrollPadding);
+
+      // Intercept clicks on in-page anchors in the navbar
+      nav.querySelectorAll('a.nav-link[href^="#"]').forEach(link => {
+        link.addEventListener("click", (e) => {
+          const id = link.getAttribute("href");
+          const target = document.querySelector(id);
+          if (!target) return;
+
+          e.preventDefault();
+
+          // temporarily disable snap while we animate to anchor
+          window.__anchorScrolling = true;
+          setTimeout(() => (window.__anchorScrolling = false), ANCHOR_LOCK_MS);
+
+          const y = window.scrollY + target.getBoundingClientRect().top - (navOffset() + 10);
+
+          window.scrollTo({ top: y, behavior: "smooth" });
+
+          // close mobile menu (bootstrap collapse)
+          const collapse = document.getElementById("navbarSupportedContent");
+          if (collapse && collapse.classList.contains("show")) {
+            const bsCollapse = bootstrap.Collapse.getInstance(collapse) || new bootstrap.Collapse(collapse);
+            bsCollapse.hide();
+          }
+        });
+      });
+    })();
+  </script>
+
+
+
+
 </body>
 </html>
